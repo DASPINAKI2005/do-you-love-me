@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Do You Love Me?</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            font-family: Arial, sans-serif;
+        }
+        #noButton {
+            position: relative;
+            transition: all 0.5s;
+        }
+
+        /* Media query for screens less than 600px */
+        @media screen and (max-width: 600px) {
+            body {
+                flex-direction: column; /* Stack buttons vertically */
+            }
+            h1 {
+                font-size: 24px; /* Smaller title size */
+            }
+            button {
+                width: 80%; /* Reduced width for buttons */
+                padding: 10px; /* Decreased padding */
+                margin: 5px 0; /* Margin between buttons */
+                font-size: 16px; /* Smaller font size for buttons */
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Do you love me?</h1>
+    <button id="yesButton">Yes</button>
+    <button id="noButton">No</button>
+
+    <script>
+        const noButton = document.getElementById('noButton');
+        const yesButton = document.getElementById('yesButton');
+
+        noButton.addEventListener('click', () => {
+            // Generate random values between -50 and 50 for x and y
+            const randomX = Math.floor(Math.random() * 101) - 50;
+            const randomY = Math.floor(Math.random() * 101) - 50; // Ensure it moves within the defined range
+            noButton.style.transform = `translate(${randomX}px, ${randomY}px)`;
+        });
+
+        yesButton.addEventListener('click', () => {
+            alert("I love you too!");
+        });
+    </script>
+</body>
+</html>
